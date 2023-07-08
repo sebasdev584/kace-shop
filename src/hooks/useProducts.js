@@ -4,6 +4,8 @@ import getProducts from "../service/getProducts";
 import getProduct from "../service/getProduct";
 import updateProduct from "../service/updateProduct";
 import deleteProduct from "../service/deleteProduct";
+import sellProduct from "../service/sellProduct";
+import getProductsByStock from "../service/getProductsByStock";
 
 
 export default function useProducts() {
@@ -37,9 +39,26 @@ export default function useProducts() {
             .finally(() => setLoading(false))
     }
 
+    const productSell = useCallback((id, cant) => {
+        setLoading(true)
+        sellProduct(id, cant)
+            .then(setMessage)
+            .catch(setError)
+            .finally(() => setLoading(false))
+
+    }, [setMessage])
+
     const getAllProducts = useCallback(() => {
         setLoading(true)
         getProducts()
+            .then(setProducts)
+            .catch(setError)
+            .finally(() => setLoading(false))
+    }, [setProducts])
+
+    const getProductsStock = useCallback(() => {
+        setLoading(true)
+        getProductsByStock()
             .then(setProducts)
             .catch(setError)
             .finally(() => setLoading(false))
@@ -60,10 +79,12 @@ export default function useProducts() {
         loading,
         product,
         getAllProducts,
+        getProductsStock,
         getDataProduct,
         addProduct,
         update,
-        productDelete
+        productDelete,
+        productSell
     }
 
 }

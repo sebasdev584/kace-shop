@@ -55,7 +55,7 @@ const FormProduct = ({ id = '' }) => {
                     validationSchema={object(VALIDATIONS_FORM)}
                 >
                     {({ isSubmitting, touched }) => (
-                        < Form className="flex flex-col mt-3 gap-2">
+                        <Form className="flex flex-col mt-3 gap-2">
                             <label className="text-lg mt-2" htmlFor="product_name">Nombre del producto:</label>
                             <Field
                                 type='text'

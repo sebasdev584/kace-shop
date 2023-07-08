@@ -15,6 +15,11 @@ const Layout = () => {
                             </Link>
                         </li>
                         <li className="p-2 mr-2 hover:text-black hover:bg-yellow-500 hover:rounded-sm">
+                            <Link to="/venta" className="p-2">
+                                Vender productos
+                            </Link>
+                        </li>
+                        <li className="p-2 mr-2 hover:text-black hover:bg-yellow-500 hover:rounded-sm">
                             <Link to="/detalle" className="p-2">
                                 Ver productos
                             </Link>

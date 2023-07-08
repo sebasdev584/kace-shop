@@ -17,3 +17,13 @@ export const VALIDATIONS_FORM = {
     product_category: string().min(3, 'Mínimo 3 caracteres').required('La categoria es requerida'),
     product_stock: number().min(1, 'Mínimo 1 caracteres').positive('No puede ser número negativo').required('El stock es requerido'),
 }
+
+export const INITIAL_VALUES_SELL = {
+    product_id: '',
+    product_stock: '',
+}
+
+export const VALIDATIONS_FORM_SELL = {
+    product_id: string().required('El producto es requerido'),
+    product_stock: number().positive('El campo no permite números negativos').required('La cantidad es obligatoria'),
+}
