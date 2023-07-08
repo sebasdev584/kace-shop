@@ -8,13 +8,15 @@ function App() {
   return (
     <>
       <Layout />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/product/:id">
-          {params => <Home id={params.id} />}
-        </Route>
-        <Route path="/detalle" component={DetalleProducto} />
-      </Switch>
+      <main className="bg-black flex justify-center items-center min-h-screen">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/product/:id">
+            {params => <Home id={params.id} />}
+          </Route>
+          <Route path="/detalle" component={DetalleProducto} />
+        </Switch>
+      </main>
     </>
   )
 }
