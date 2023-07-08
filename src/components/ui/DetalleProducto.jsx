@@ -6,12 +6,12 @@ const DetalleProducto = () => {
     const { getAllProducts, productDelete, loading, products, error } = useProducts()
     const [deleted, setDeleted] = useState(false)
 
-    const deleteProduct = (id) => {
-        let deleteProduct = confirm("Deseas eliminar el producto?")
+    const deleteProduct = (id, nameProduct) => {
+        let deleteProduct = confirm(`Deseas eliminar el producto: ${nameProduct}?`)
         if (deleteProduct) {
             productDelete(id)
             setDeleted(true)
-            location.reload()
+            getAllProducts()
         }
         setDeleted(false)
     }
@@ -45,7 +45,7 @@ const DetalleProducto = () => {
                                         <td className="p-5 pt-0">{product.product_price}</td>
                                         <td className="p-5 pt-0">{product.product_category}</td>
                                         <td className="p-5 pt-0">{product.product_stock}</td>
-                                        <td className="p-5 pt-0"><button onClick={() => deleteProduct(product._id)}>❌</button></td>
+                                        <td className="p-5 pt-0"><button onClick={() => deleteProduct(product._id, product.product_name)}>❌</button></td>
                                         <td className="p-5 pt-0">
                                             <Link to={`/product/${product._id}`}>
                                                 📝

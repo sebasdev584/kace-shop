@@ -17,7 +17,7 @@ const FormProduct = ({ id = '' }) => {
             !error && resetForm()
         } else {
             update(id, values)
-            navigate(0)
+            navigate("/detalle")
         }
     }
 
